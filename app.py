@@ -1,17 +1,18 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+# from flask_sqlalchemy import SQLAlchemy as _BaseSQLAlchemy
 import os
 
 app=Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_POOL_SIZE']=20
+app.config['SQLALCHEMY_POOL_TIMEOUT']=30
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-
-
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
+print("POOL SIZE = {}".format(db.engine.pool.size()))
 
 class Item(db.Model):
   id = db.Column(db.Integer, primary_key=True)
@@ -59,3 +60,7 @@ def delete_item(id):
   db.session.query(Item).filter_by(id=id).delete()
   db.session.commit()
   return "item deleted"
+
+@app.route('/healthz', methods=['GET'])
+def get_healthcheck():
+   return "<h2>Your Flask app is running successfully!<h2>"
