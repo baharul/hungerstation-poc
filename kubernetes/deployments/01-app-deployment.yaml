@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deploy
+  labels:
+    app: flaskapp
+spec:
+  selector:
+    matchLabels:
+      app: flaskapp
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: flaskapp
+    spec:
+      containers:
+      - name: flaskapp
+        image: baharul1987/pythonapp:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "50m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: flaskapp-svc
+spec:
+  type: LoadBalancer
+  selector:
+    app: flaskapp
+  ports:
+  - port: 80
+    targetPort: 80

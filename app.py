@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI']="postgresql://postgres:nHZ6sAG4T2@postgres-postgresql.default.svc.cluster.local:5432/postgres"
 app.config['SQLALCHEMY_POOL_SIZE']=20
 app.config['SQLALCHEMY_POOL_TIMEOUT']=30
 
@@ -12,7 +12,6 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 db = SQLAlchemy(app)
-print("POOL SIZE = {}".format(db.engine.pool.size()))
 
 class Item(db.Model):
   id = db.Column(db.Integer, primary_key=True)
