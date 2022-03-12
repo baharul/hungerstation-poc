@@ -9,6 +9,7 @@ services:
       - "80:80"
     environment:
       - DATABASE_URL=postgresql://postgres:JHoF06VTDh@postgres-12-postgresql:5432/postgres
+                      
 
 #   db:
 #     container_name: db

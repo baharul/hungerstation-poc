@@ -25,6 +25,22 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 80
+        env:
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: user
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: password
+          - name: POSTGRES_DBNAME
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: dbname
         resources:
           requests:
             memory: "64Mi"

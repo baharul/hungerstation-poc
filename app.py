@@ -1,10 +1,16 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 # from flask_sqlalchemy import SQLAlchemy as _BaseSQLAlchemy
 import os
 
 app=Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']="postgresql://postgres:nHZ6sAG4T2@postgres-postgresql.default.svc.cluster.local:5432/postgres"
+user_name=os.environ.get('POSTGRES_USER')
+print(f'USER NAMEEEEEEEE ======> {user_name}')
+password=os.environ.get('POSTGRES_PASSWORD')
+print(f'PASSSSSWORRRRDDDD ======> {password}')
+dbname=os.environ.get('POSTGRES_DBNAME')
+print(f'DB NAMEEEEEEE ======> {dbname}')
+app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://{user_name}:{password}@postgres-postgresql.default.svc.cluster.local:5432/{dbname}"
 app.config['SQLALCHEMY_POOL_SIZE']=20
 app.config['SQLALCHEMY_POOL_TIMEOUT']=30
 
@@ -60,6 +66,9 @@ def delete_item(id):
   db.session.commit()
   return "item deleted"
 
+
 @app.route('/healthz', methods=['GET'])
 def get_healthcheck():
-   return "<h2>Your Flask app is running successfully!<h2>"
+   return """
+      <h2>Your App is running successfully</h2>
+   """
