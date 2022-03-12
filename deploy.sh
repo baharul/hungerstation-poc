@@ -9,7 +9,7 @@ echo "########### Installing the bitnami/postresql Helm Chart... ########### ";e
 echo;
 helm repo add bitnami https://charts.bitnami.com/bitnami; helm update;
 helm install postgres bitnami/postgresql --set persistence.existingClaim=postgresql-pvc --set volumePermissions.enabled=true --set global.postgresql.auth.database="firstdb"  --set global.postgresql.auth.username="firstuser" --set global.postgresql.auth.password="pleasechangeme";echo;
-echo;
+echo; 
 echo "########### Installing Flask app ###########";echo;
 echo;
 kubectl apply -f secrets.yaml
