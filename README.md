@@ -37,29 +37,29 @@ This app is tested thoroughly only on MacOS Bigsur and in Docker for kubernetes 
       
 # Screenshots
 
-Shell Script Output Screen - 1 - Installing Application Helm Chart and provisioning DB with PV and PVC
+Shell Script Output Screen - 1
 
-![image](https://user-images.githubusercontent.com/7221247/158053288-005823b9-8827-4210-acab-2714ab6c0423.png)
+<img width="1590" alt="image" src="https://user-images.githubusercontent.com/7221247/158076107-aa551369-7d3a-41fe-94b9-47585e2d851f.png">
 
-Shell Script Output Screen - 2 - Service with Nodeport to allow access to Ingress Controller and Service Health Check
+Shell Script Output Screen - 2
 
-![image](https://user-images.githubusercontent.com/7221247/158053303-ffbee418-7dc1-4a8d-8aeb-f232bbbe12d8.png)
+<img width="1590" alt="image" src="https://user-images.githubusercontent.com/7221247/158076127-cc86ed47-50a8-4ee8-a279-5280db9f664c.png">
+<img width="1590" alt="image" src="https://user-images.githubusercontent.com/7221247/158076134-081ad527-9028-4d0d-a3bd-8e18a880f76b.png">
+
 
 Shell Output for the Command - kubectl get all --all-namespaces
 
-![image](https://user-images.githubusercontent.com/7221247/158053419-1539f653-4a10-4ba8-ac8c-868a1a0c3585.png)
+<img width="1590" alt="image" src="https://user-images.githubusercontent.com/7221247/158076149-b548c3cd-cc17-4e93-810c-99045757a11f.png">
 
 App Screenshot 1:
 
-![image](https://user-images.githubusercontent.com/7221247/158053457-7943a5ea-87d1-4800-a170-ee25b5bd152a.png)
+<img width="1411" alt="image" src="https://user-images.githubusercontent.com/7221247/158076172-9a780c4f-f010-4288-a295-922aeb95d09f.png">
 
 App Screenshot 2:
 
-<img width="1585" alt="image" src="https://user-images.githubusercontent.com/7221247/158053501-0d913da3-beb8-430c-8eff-e28d5d58af4b.png">
+<img width="1411" alt="image" src="https://user-images.githubusercontent.com/7221247/158076177-fea45591-2ecf-4c03-8815-21160db4f131.png">
 
 App Screenshot 3:
 
-<img width="1585" alt="image" src="https://user-images.githubusercontent.com/7221247/158053538-8d0fd69d-ff65-4cd2-9a67-f6bbe7b1e975.png">
+<img width="1411" alt="image" src="https://user-images.githubusercontent.com/7221247/158076191-da953e9c-24ca-4218-9e83-987e2f832f1b.png">
 
-
-      
