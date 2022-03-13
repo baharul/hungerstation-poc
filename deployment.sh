@@ -1,6 +1,14 @@
-echo "########### Removing Existing Nginx Ingress dependencies for clean installation... ###########"
-echo;
-sh ./remove.sh
+
+STR=$(kubectl get ns)
+SUB='ingress-nginx'
+if [[ "$STR" == *"$SUB"* ]]; then
+  echo "########### Removing Existing Nginx Ingress dependencies for clean installation... ###########"
+  echo;
+  echo "Namespase nginx-ingress exists in k8s cluster, Removing it...."
+  sh ./remove.sh
+fi
+
+
 echo;
 
 echo "########### Starting Deployment... ###########"
