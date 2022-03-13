@@ -11,6 +11,18 @@ This app is tested thoroughly only on MacOS Bigsur and in Docker for kubernetes 
   3. Git
   4. Postman Api Client
 
+# Compile Docker compose Locally:
+
+      1. docker-compose build - Build the project.
+      
+      2. docker-compose up db - Execute this command first as we need to bring the DB first before app.
+
+      3. docker-compose up - Execute this command to bring up the Flask App.
+
+      4. docker-compose down - Execute this command to bring down the service.
+    
+
+
 # Git
          git clone https://github.com/baharul/hungerstation-poc.git
          
