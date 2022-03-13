@@ -1,14 +1,15 @@
 # hungerstation-poc
-This app demonstrates how we can create and deploy a simple Python Flask Api with CRUD operation in postgresqlDB and deploy it in single node cluster using Docker for Kubernetes Software.
+This app demonstrates how we can create and deploy a simple Python Flask Api with CRUD operation in postgresql DB and deploy it in single node cluster using Docker for Kubernetes.
 
 # Pre-requisites:
 
 
-This app is tested thoroughly on MacOS Bigsure and in Docker for kubernetes platform. Please make sure you have the below softwares installed.
+This app is tested thoroughly only on MacOS Bigsur and in Docker for kubernetes platform. Please make sure you have the below softwares installed.
 
   1. Python > 3.7+
   2. Docker - Enable Kubernetes
   3. Git
+  4. Postman Api Client
 
 # Git
          git clone https://github.com/baharul/hungerstation-poc.git
