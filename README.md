@@ -4,12 +4,14 @@ This app demonstrates how we can create and deploy a simple Python Flask Api wit
 # Pre-requisites:
 
 
-This app is tested thoroughly only on MacOS Bigsur and in Docker for kubernetes platform. Please make sure you have the below softwares installed.
+Please make sure you have the below softwares installed. This app has been tested in Docker for kubernetes - Single Node Cluster
 
   1. Python > 3.7+
   2. Docker - Enable Kubernetes
   3. Git
   4. Postman Api Client
+  5. Helm Latest version
+  6. Kubectl Latest version
 
 # Compile Docker compose Locally:
 
