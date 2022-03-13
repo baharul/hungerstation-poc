@@ -2,7 +2,7 @@ app:
   replicas: 2
   env: qa
   container:
-    image: baharul1987/pythonapp:latest
+    image: baharul1987/pythonapp:v3
     containerport: 5000
   computerc:
     limits:
