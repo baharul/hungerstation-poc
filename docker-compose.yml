@@ -6,10 +6,9 @@ services:
     image: pythonapp
     build: .
     ports:
-      - "80:80"
-    environment:
-      - DATABASE_URL=postgresql://postgres:JHoF06VTDh@postgres-12-postgresql:5432/postgres
-                      
+      - "5000:5000"
+    # depends_on:
+    #   - db              
 
 #   db:
 #     container_name: db

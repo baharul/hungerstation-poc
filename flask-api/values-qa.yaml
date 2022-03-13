@@ -1,0 +1,40 @@
+app:
+  replicas: 2
+  env: qa
+  container:
+    image: baharul1987/pythonapp:latest
+    containerport: 5000
+  computerc:
+    limits:
+      memory: "1Gi"
+      cpu: 1
+    requests:
+      memory: "1Gi"
+      cpu: 1
+
+hpa:
+  enabled: false
+
+ingress:
+  service:
+    name: flaskpp-svc
+    port: 80
+
+secrets:
+  data:
+    user: firstuser
+    password: pleasechangeme
+    dbname: firstdb
+
+
+persistentvolume:
+  storage: 10Gi
+  
+
+config:
+  name: config.yaml
+  data:
+    timeout: 5s
+    logfile: /app/var/log.txt
+    database:
+      ip: 10.20.30.40

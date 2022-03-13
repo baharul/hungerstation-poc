@@ -11,6 +11,7 @@ print(f'PASSSSSWORRRRDDDD ======> {password}')
 dbname=os.environ.get('POSTGRES_DBNAME')
 print(f'DB NAMEEEEEEE ======> {dbname}')
 app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://{user_name}:{password}@postgres-postgresql.default.svc.cluster.local:5432/{dbname}"
+# app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://postgres:postgres@db:5432/postgres"
 app.config['SQLALCHEMY_POOL_SIZE']=20
 app.config['SQLALCHEMY_POOL_TIMEOUT']=30
 

@@ -3,12 +3,12 @@ kind: Deployment
 metadata:
   name: python-deploy
   labels:
-    app: flaskapp
+    {{- include "flaskapp.labels" . | nindent 4  }}
 spec:
   selector:
     matchLabels:
       app: flaskapp
-  replicas: 2
+  replicas: {{ .Values.app.replicas }}
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -17,14 +17,14 @@ spec:
   template:
     metadata:
       labels:
-        app: flaskapp
+        {{- include "flaskapp.labels" . | nindent 8  }}
     spec:
       containers:
       - name: flaskapp
-        image: baharul1987/pythonapp:latest
+        image: {{ .Values.app.container.image }}
         imagePullPolicy: Always
         ports:
-        - containerPort: 5000
+        - containerPort: {{ .Values.app.container.containerport }}
         env:
           - name: POSTGRES_USER
             valueFrom:
@@ -42,23 +42,4 @@ spec:
                 name: postgres-credentials
                 key: dbname
         resources:
-          requests:
-            memory: "64Mi"
-            cpu: "50m"
-          limits:
-            memory: "256Mi"
-            cpu: "500m"
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: flaskapp-svc
-spec:
-  selector:
-    app: flaskapp
-  ports:
-  - port: 80
-    protocol: TCP
-    targetPort: 5000
+          {{- toYaml .Values.app.computerc | nindent 10 }}
