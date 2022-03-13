@@ -16,11 +16,11 @@ This app is tested thoroughly only on MacOS Bigsur and in Docker for kubernetes 
          
 # Running Scripts
 
-      1. Enable Recursive permission for the existing folder - chmod -R 777 .
+      1. Enable execution permission for the files - chmod +x deployment.sh  && chmod +x remove.sh
       
       2. In Your terminal, Enter sh deploy.sh to trigger the deployment.
       
-      3. mvn test -Dcucumber.filter.tags="@frontend" - // Run only frontend Test cases
+      3. To be on safer side, Please keep the localhost and port 80 free for deploying the ingress object as we use it as host for our backend service.
       
       
 # Screenshots
