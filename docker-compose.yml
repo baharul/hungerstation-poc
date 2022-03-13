@@ -3,25 +3,31 @@ version: '3.9'
 services:
   pythonapp:
     container_name: pythonapp
-    image: pythonapp
-    build: .
+    image: pythonapp:latest
+    
+    build: 
+      context: .
+      cache_from: 
+      - pythonapp:latest
     ports:
       - "5000:5000"
-    # depends_on:
-    #   - db              
+    environment:
+      - dbstring=postgresql://appuser:apppassword@db:5432/myapp
+    depends_on:
+      - db              
 
-#   db:
-#     container_name: db
-#     image: postgres:12
-#     ports:
-#       - "5432:5432"
-#     environment:
-#       - POSTGRES_PASSWORD=postgres
-#       - POSTGRES_USER=postgres
-#       - POSTGRES_DB=postgres
-#     volumes:
-#       - pgdata:/var/lib/postgresql/data
+  db:
+    container_name: db
+    image: bitnami/postgresql:12.10.0
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=apppassword
+      - POSTGRES_USER=appuser
+      - POSTGRES_DB=myapp
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
 
-# volumes:
-#   pgdata: {}
+volumes:
+  pgdata: {}

@@ -4,13 +4,14 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 
 app=Flask(__name__)
-user_name=os.environ.get('POSTGRES_USER')
-print(f'USER NAMEEEEEEEE ======> {user_name}')
-password=os.environ.get('POSTGRES_PASSWORD')
-print(f'PASSSSSWORRRRDDDD ======> {password}')
-dbname=os.environ.get('POSTGRES_DBNAME')
-print(f'DB NAMEEEEEEE ======> {dbname}')
-app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://{user_name}:{password}@postgres-postgresql.default.svc.cluster.local:5432/{dbname}"
+# user_name=os.environ.get('POSTGRES_USER')
+# print(f'USER NAMEEEEEEEE ======> {user_name}')
+# password=os.environ.get('POSTGRES_PASSWORD')
+# print(f'PASSSSSWORRRRDDDD ======> {password}')
+# dbname=os.environ.get('POSTGRES_DBNAME')
+# print(f'DB NAMEEEEEEE ======> {dbname}')
+dbstring=os.environ.get('dbstring')
+app.config['SQLALCHEMY_DATABASE_URI']=f"{dbstring}"
 # app.config['SQLALCHEMY_DATABASE_URI']=f"postgresql://postgres:postgres@db:5432/postgres"
 app.config['SQLALCHEMY_POOL_SIZE']=20
 app.config['SQLALCHEMY_POOL_TIMEOUT']=30

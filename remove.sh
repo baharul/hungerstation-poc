@@ -1,11 +1,10 @@
 echo "Deleting All...";echo;
 
-cd kubernetes/deployments
+
 helm uninstall ingress-nginx
-helm uninstall dev-deploy-hs
+helm uninstall myapp
 kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 kubectl delete all --all -n ingress-nginx
-kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 kubectl delete ingressclass nginx --all-namespaces
 kubectl delete cm ingress-nginx-nginx-ingress-leader-election
 kubectl delete namespace ingress-nginx

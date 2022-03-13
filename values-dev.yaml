@@ -1,0 +1,27 @@
+app:
+  replicas: 1
+  env: dev
+  container:
+    image: baharul1987/pythonapp:v3
+    containerport: 5000
+  computerc:
+    limits:
+      cpu: 1
+      memory: 1Gi
+    requests:
+      cpu: 250m
+      memory: 250Mi
+
+hpa:
+  enabled: false
+
+ingress:
+  service:
+    name: flaskpp-svc
+    port: 80
+
+postgresql:
+  enabled: true
+  persistence:
+    enabled: true
+    size: 2Gi 

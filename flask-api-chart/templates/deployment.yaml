@@ -41,5 +41,10 @@ spec:
               secretKeyRef:
                 name: postgres-credentials
                 key: dbname
+          - name: dbstring
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials
+                key: dbstring
         resources:
           {{- toYaml .Values.app.computerc | nindent 10 }}

@@ -2,7 +2,7 @@ app:
   replicas: 6
   env: prod
   container:
-    image: baharul1987/pythonapp:latest
+    image: baharul1987/pythonapp:v3
     containerport: 5000
   computerc:
     limits:
@@ -23,20 +23,8 @@ ingress:
     name: flaskpp-svc
     port: 80
 
-secrets:
-  data:
-    user: firstuser
-    password: pleasechangeme
-    dbname: firstdb
-
-
-persistentvolume:
-  storage: 50Gi
-  
-config:
-  name: config.yaml
-  data:
-    timeout: 2s
-    logfile: /app/var/log.txt
-    database:
-      ip: 10.21.31.40
+postgresql:
+  enabled: true
+  persistence:
+    enabled: true
+    size: 10Gi 
