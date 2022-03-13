@@ -71,5 +71,5 @@ def delete_item(id):
 @app.route('/healthz', methods=['GET'])
 def get_healthcheck():
    return """
-      <h2>Your App is running successfully</h2>
+      <h2>Your App is running successfully - Version 1</h2>
    """
