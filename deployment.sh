@@ -1,4 +1,4 @@
-echo "########### Removing Existing Nginx Ingress dependencies... ###########"
+echo "########### Removing Existing Nginx Ingress dependencies for clean installation... ###########"
 echo;
 sh ./remove.sh
 echo;
